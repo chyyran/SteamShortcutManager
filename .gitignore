@@ -11,6 +11,8 @@ Icon?
 .Spotlight-V100
 .Trashes
 
+*.swp
+
 *.py[cod]
 
 # C extensions
