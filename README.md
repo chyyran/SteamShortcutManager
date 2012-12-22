@@ -1,5 +1,3 @@
-#Readme
-
 ##Description
 The purpose of this project is to allow easy modification of Steam's 
 "Non-Steam Games" list with normal python code. This list is stored in a file
