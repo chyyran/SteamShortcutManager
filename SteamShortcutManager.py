@@ -92,7 +92,7 @@ class SteamShortcutFileParser():
     # real reason why this is the case, other than that is the type of parser I
     # know how to write (thanks compilers class!). I will be basing it on the
     # grammar which I have (hopefully) written above.
-    def __parse__(string):
+    def parse(string):
         return []
             
 
@@ -104,8 +104,14 @@ class SteamShortcutManager():
             self.__load_shortcuts__(file)
             
     def __load_shortcuts__(self,file):
+        self.shortcuts_file = file
         file_contents = open(file,"r").read()
         self.games = SteamShortcutFileParser().parse(file_contents)
+        
+    def save():
+        print "Write to file: %s" % self.shortcuts_file
+        print self.to_shortcuts_string
+        #open(self.shortcuts_file,"w").write(self.to_shortcuts_string())
             
     def add_game(self,appname,exe,startdir,icon="",tag=""):
         shortcut = SteamShortcut(appname,exe,startdir,icon,tag)
