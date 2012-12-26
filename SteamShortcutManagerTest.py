@@ -33,39 +33,39 @@ manager = SteamShortcutManager()
 
 test("No Shortcuts","vdfs/empty-shortcuts.vdf",manager)
 
-manager.add_game("iLoL Open Beta 1.1","\"/Applications/iLoL Open Beta 1.1.app\"","\"/Applications/\"")
+manager.add_shortcut("iLoL Open Beta 1.1","\"/Applications/iLoL Open Beta 1.1.app\"","\"/Applications/\"")
 
 test("One Shortcut","vdfs/onlyilol-shortcuts.vdf",manager)
 
 windows_manager = SteamShortcutManager()
-windows_manager.add_game(   "Paper Mario",
-                            "\"C:\Program Files (x86)\Project64\Project64.exe\" \"C:\Users\Scott.Scott-PC\ROMs\N64\PaperMario.n64\"",
-                            "\"C:\Program Files (x86)\Project64\\\"")
-windows_manager.add_game(   "Final Fantasy X",
-                            "\"C:\Program Files (x86)\Emulator Copies\Final Fantasy X\pcsx2-r5350.exe\"  \"C:\Users\Scott.Scott-PC\ROMs\PS2\Final Fantasy X.iso\"",
-                            "\"C:\Program Files (x86)\Emulator Copies\Final Fantasy X\\\"")
-windows_manager.add_game(   "Kingdom Hearts",
-                            "\"C:\Program Files (x86)\Emulator Copies\Kingdom Hearts\pcsx2-r5350.exe\" \"C:\Users\Scott.Scott-PC\ROMs\PS2\Kingdom Hearts.iso\"",
-                            "\"C:\Program Files (x86)\Emulator Copies\Kingdom Hearts\\\"")
+windows_manager.add_shortcut(   "Paper Mario",
+                                "\"C:\Program Files (x86)\Project64\Project64.exe\" \"C:\Users\Scott.Scott-PC\ROMs\N64\PaperMario.n64\"",
+                                "\"C:\Program Files (x86)\Project64\\\"")
+windows_manager.add_shortcut(   "Final Fantasy X",
+                                "\"C:\Program Files (x86)\Emulator Copies\Final Fantasy X\pcsx2-r5350.exe\"  \"C:\Users\Scott.Scott-PC\ROMs\PS2\Final Fantasy X.iso\"",
+                                "\"C:\Program Files (x86)\Emulator Copies\Final Fantasy X\\\"")
+windows_manager.add_shortcut(   "Kingdom Hearts",
+                                "\"C:\Program Files (x86)\Emulator Copies\Kingdom Hearts\pcsx2-r5350.exe\" \"C:\Users\Scott.Scott-PC\ROMs\PS2\Kingdom Hearts.iso\"",
+                                "\"C:\Program Files (x86)\Emulator Copies\Kingdom Hearts\\\"")
 
 test("Three Complex Shortcuts","vdfs/windows-shortcuts.vdf",windows_manager)                  
 
 icon_manager = SteamShortcutManager()
 
-icon_manager.add_game(  "Minecraft",
-                        "\"/Users/scottrice/Applications/Minecraft.app\"",
-                        "\"/Users/scottrice/Applications/\"",
-                        "/Users/scottrice/Downloads/glyphish-icons/PNG icons/06-magnify.png")
+icon_manager.add_shortcut(  "Minecraft",
+                            "\"/Users/scottrice/Applications/Minecraft.app\"",
+                            "\"/Users/scottrice/Applications/\"",
+                            "/Users/scottrice/Downloads/glyphish-icons/PNG icons/06-magnify.png")
 
 test("One Shortcut, Custom Icon","vdfs/iconchange-shortcuts.vdf",icon_manager)
 
 tag_manager = SteamShortcutManager()
 
-tag_manager.add_game(   "Minecraft",
-                        "\"/Users/scottrice/Applications/Minecraft.app\"",
-                        "\"/Users/scottrice/Applications/\"",
-                        "/Users/scottrice/Downloads/glyphish-icons/PNG icons/06-magnify.png",
-                        "Dirty Casual")
+tag_manager.add_shortcut(   "Minecraft",
+                            "\"/Users/scottrice/Applications/Minecraft.app\"",
+                            "\"/Users/scottrice/Applications/\"",
+                            "/Users/scottrice/Downloads/glyphish-icons/PNG icons/06-magnify.png",
+                            "Dirty Casual")
 
 test("One Shortcut, Custom Icon and Tag","vdfs/tag-shortcuts.vdf",tag_manager)
 
