@@ -16,8 +16,16 @@ parse_results = []
 generate_results = []
 
 def test(description,file,manager):
-    test_generate(description,file,manager)
-    test_parse(description,file,manager)
+    test_both_ways(description,file)
+    # test_generate(description,file,manager)
+    # test_parse(description,file,manager)
+    
+def test_both_ways(description,file):
+    file_contents = open(file,"r").read()
+    manager = SteamShortcutManager(file)
+    result = (file_contents == manager.to_shortcuts_string())
+    print "%s: %s" % (description, "Pass" if result else "Fail")
+    
             
 def test_generate(description,file,manager):
     file_contents = open(file,"r").read()
@@ -39,8 +47,6 @@ def test_parse(description,file,manager):
     generated_manager = SteamShortcutManager(file)
     result = (manager == generated_manager)
     parse_results.append("%s: %s" % (description,"Pass" if result else "Fail"))
-    # generated_filename = file+".parsed"
-    
         
 
 manager = SteamShortcutManager()
@@ -127,9 +133,9 @@ test("One Shortcut, Custom Icon and Tag","vdfs/tag-shortcuts.vdf",tag_manager)
 test("Complex Shortcuts (Dave)","vdfs/dave-shortcuts.vdf",dave_manager)
 test("Carraige Return and Line Feed","vdfs/wtfis0x0d-shortcuts.vdf",crlf_manager)
 
-print "===========Generated==========="
-for result in generate_results:
-    print result
-print "============Parsed============="
-for result in parse_results:
-    print result
+# print "===========Generated==========="
+# for result in generate_results:
+#     print result
+# print "============Parsed============="
+# for result in parse_results:
+#     print result

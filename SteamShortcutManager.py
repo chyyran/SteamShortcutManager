@@ -178,10 +178,19 @@ class SteamShortcutManager():
         self.games = parsed_games
         # self.games = SteamShortcutFileParser().parse(file_contents)
         
-    def save(self):
-        print "Write to file: %s" % self.shortcuts_file
-        print self.to_shortcuts_string()
-        #open(self.shortcuts_file,"w").write(self.to_shortcuts_string())
+    def save(self,file=None):
+        # print "Write to file: %s" % self.shortcuts_file
+        # print self.to_shortcuts_string()
+        # If they just called save(), then overwrite the file that was used to
+        # generate the manager.
+        if not file:
+            file = self.shortcuts_file
+        # If file is still undefined, then we have no idea where to save it, so
+        # we just return after printing an error
+        if not file:
+            print "SteamShortcutManager Save Error: No file specified"
+            return None
+        open(file,"w").write(self.to_shortcuts_string())
     
     def add(self,shortcut):
         self.games.append(shortcut) 
