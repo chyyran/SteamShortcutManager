@@ -125,7 +125,7 @@ test("Three Complex Shortcuts","vdfs/windows-shortcuts.vdf",windows_manager)
 test("One Shortcut, Custom Icon","vdfs/iconchange-shortcuts.vdf",icon_manager)
 test("One Shortcut, Custom Icon and Tag","vdfs/tag-shortcuts.vdf",tag_manager)
 test("Complex Shortcuts (Dave)","vdfs/dave-shortcuts.vdf",dave_manager)
-test("Carraige Return and Line Feed","vdfs/wtfis0x0d-shortcuts.vdf",windows_manager)
+test("Carraige Return and Line Feed","vdfs/wtfis0x0d-shortcuts.vdf",crlf_manager)
 
 print "===========Generated==========="
 for result in generate_results:

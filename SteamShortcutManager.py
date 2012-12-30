@@ -115,7 +115,6 @@ class SteamShortcutFileParser():
     def match_array_string(self,string):
         # Match backwards (aka match last item first)
         if string == "":
-            print "Base Case: Nothing left in array"
             return []
         # One side effect of matching this way is we are throwing away the
         # array index. I dont think that it is that important though, so I am
@@ -124,9 +123,6 @@ class SteamShortcutFileParser():
         groups = match.groups()
         if match:
             # Recursivly find the previous shortcuts
-            print groups[0]
-            print groups[1]
-            print "----------------------------"
             shortcuts = self.match_array_string(groups[0])
             shortcuts.append(self.match_shortcut_string(groups[1]))
             return shortcuts
@@ -138,13 +134,29 @@ class SteamShortcutFileParser():
         # for the shortcut string (Appname, Exe, StartDir, etc), as oppposed
         # to matching for general Key-Value pairs. This could possibly create a
         # lot of work for me later, but for now it will get the job done
-        re.match(ur"\u0001AppName\u0000(.*)\u0000\
-                    \u0001Exe\u0000(.*)\u0000\
-                    \u0001StartDir\u0000(.*)\u0000\
-                    \u0001Exe\u0000(.*)\u0000\u0000\
-                    ",string)
-        return SteamShortcut("","","","","")
+        match = re.match(ur"\u0001AppName\u0000(.*)\u0000\u0001Exe\u0000(.*)\u0000\u0001StartDir\u0000(.*)\u0000\u0001icon\u0000(.*)\u0000\u0000tags\u0000(.*)\u0008",string)
+        if match:
+            # The 'groups' that are returned by the match should be the data
+            # contained in the file. Now just make a SteamShortcut out of that
+            # data
+            groups = match.groups()
+            appname = groups[0]
+            exe = groups[1]
+            startdir = groups[2]
+            icon = groups[3]
+            tags = self.match_tags_string(groups[4])
+            return SteamShortcut(appname,exe,startdir,icon,tags)
+        else:
+            return None
             
+    def match_tags_string(self,string):
+        print tuple(string)
+        match = re.match(ur"\u00010\u0000(.*)\u0000",string)
+        if match:
+            groups = match.groups()
+            return groups[0]
+        else:
+            return ""
 
 class SteamShortcutManager():
     
