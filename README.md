@@ -9,9 +9,6 @@ although you are free to use them directly.
 
 ##TODO
 
-- Create actual unit tests to replace the manual testing I have set up currently
 - Standardize the test vdf files (as opposed to current vdfs that I haphazardly threw together)
 - Create more vdfs with different scenarios (such as tags, which seems to be an
   array, but I can't get Steam to let me add more than 1. Look into that)
-- Implement the parser (I am holding off on that until I am more confident in
-  the output of the generator and that it is correct for most situations)
