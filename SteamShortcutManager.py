@@ -106,7 +106,6 @@ class SteamShortcutFileParser():
         match = re.match(ur"\u0000shortcuts\u0000(.*)\u0008\u0008$",string)
         if match:
             array = self.match_array_string(match.groups()[0])
-            print "============================"
             return array
             # return self.match_array_string(match.groups()[0])
         else:
@@ -150,7 +149,6 @@ class SteamShortcutFileParser():
             return None
             
     def match_tags_string(self,string):
-        print tuple(string)
         match = re.match(ur"\u00010\u0000(.*)\u0000",string)
         if match:
             groups = match.groups()
