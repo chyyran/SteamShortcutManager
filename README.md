@@ -12,3 +12,6 @@ although you are free to use them directly.
 - Standardize the test vdf files (as opposed to current vdfs that I haphazardly threw together)
 - Create more vdfs with different scenarios (such as tags, which seems to be an
   array, but I can't get Steam to let me add more than 1. Look into that)
+  
+##License
+All of my code is licensed under the MIT License.
