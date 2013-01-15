@@ -37,6 +37,12 @@ class SteamShortcut:
     
     def __ne__(self,other):
         return not self.__eq__(other)
+        
+    def __hash__(self):
+        return "__STEAMSHORTCUT{0}{1}{2}{3}{4}__".format(self.appname,self.exe,self.startdir,self.icon,self.tag).__hash__()
+        
+    def __repr__(self):
+        return "Steam Shortcut: %s" % self.appname
 
 
 # This class is in charge of outputting a valid shortcuts.vdf file given an
